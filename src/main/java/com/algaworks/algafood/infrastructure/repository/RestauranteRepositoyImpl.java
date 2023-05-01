@@ -3,6 +3,8 @@ package com.algaworks.algafood.infrastructure.repository;
 import java.util.List;
 
 
+import org.springframework.stereotype.Repository;
+
 import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.repository.RestauranteRepository;
 
@@ -10,6 +12,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
+@Repository
 public class RestauranteRepositoyImpl implements RestauranteRepository{
 
 	@PersistenceContext
@@ -28,7 +31,7 @@ public class RestauranteRepositoyImpl implements RestauranteRepository{
 	
 	@Override
 	@Transactional
-	public Restaurante adicionar(Restaurante restaurante) {
+	public Restaurante salvar(Restaurante restaurante) {
 		return manager.merge(restaurante);
 	}
 	
